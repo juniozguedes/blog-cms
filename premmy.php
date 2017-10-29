@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('header.php');
 
 session_start();
@@ -16,7 +16,7 @@ catch(PDOException $e)
 <div class="col-md-12">
  <a class="btn btn-dark btn-lg btn-block" href="select.php">Manage Accounts</a><br/>
  <a class="btn btn-dark btn-lg btn-block" href="cadastro.php">Register new Admin</a><br/>
- <a class="btn btn-dark btn-lg btn-block" href="delete.php">Delete Users</a><br/>
+ <a class="btn btn-dark btn-lg btn-block" href="delete_a_user.php">Delete Users</a><br/>
 
  <a class="btn btn-danger btn-lg btn-block" href="logout.php">Sair</a>
 </div>

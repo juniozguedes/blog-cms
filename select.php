@@ -4,7 +4,7 @@
 <table border="2">
 <tr>
 <th>ID</th>
-<th>EMAIL</th>
+<th>LOGIN</th>
 <th>PASSWORD</th>
 <th colspan="2">ACTION</th>
 
@@ -13,11 +13,11 @@
 session_start();
 
 $dsn = "mysql:dbname=blog;host=127.0.0.1";
-$dbuser = "root"; 
-$dbpass = ""; 
+$dbuser = "root";
+$dbpass = "";
 
 try{
-$con = new PDO($dsn, $dbuser, $dbpass);  
+$con = new PDO($dsn, $dbuser, $dbpass);
 $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $select = $con->prepare("SELECT * FROM cadastrados ");
 
@@ -30,19 +30,19 @@ while($data=$select->fetch()){
 <td><?php echo $data['id']; ?></td>
 <td><?php echo $data['email']; ?></td>
 <td><?php echo $data['senha']; ?></td>
-<td><a href="update.php?edit_id=<?php echo $data['id']; ?>">EDIT</a></td>
-<td><a href="delete.php?del_id=<?php echo $data['id']; ?>">DELETE</a></td>
+<td><a href="update_a_user.php?edit_user_id=<?php echo $data['id']; ?>">EDIT</a></td>
+<td><a href="delete_a_user.php?del_user_id=<?php echo $data['id']; ?>">DELETE</a></td>
 <?php
 }
 }
 catch(PDOException $e)
 {
-echo "error:".$e->getMessage(); 
+echo "error:".$e->getMessage();
 }
 
 ?>
 </tr></table>
-<a href="insert.php">Inserir novo usuário</a><br/>
+<a href="cadastro.php">Inserir novo usuário</a><br/>
 <a href="index.php">Voltar a página principal</a><br/>
 </div>
 <?php include_once('footer.php');?>

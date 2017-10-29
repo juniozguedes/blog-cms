@@ -1,11 +1,6 @@
 <?php include('header.php');?>
 <?php
 session_start();
-if (isset($_SESSION['id']) && empty($_SESSION['id'])==false)
-{ #Verifica se tem algo guardado na variável global $_SESSION['id'] e verifica também se ela não está vazia garantindo acesso a área restrita.
-header("Location:premmyposts.php");
-}else{ #Caso o $SESSION ID não esteja populado, será requisitado o login
-}
 
 $dsn = "mysql:dbname=blog;host=127.0.0.1";
 $dbuser = "root";
@@ -32,7 +27,6 @@ while($data=$select->fetch()){
             <!--<p>Autor-id:<?php echo $data['id']; ?></p><-->
             <hr>
             <p><?php echo $data['post']; ?><p>
-              <a class='btn btn-outline-primary' id='edit' href='single.php?this_id=<?php echo $data['id']; ?>'>Read More</a>
 
             <hr>
           </div><!-- /.blog-post -->
