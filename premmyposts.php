@@ -1,12 +1,6 @@
 <?php include('header.php');?>
 <?php
 session_start();
-if (isset($_SESSION['id']) && empty($_SESSION['id'])==false)
-{ #Verifica se tem algo guardado na variável global $_SESSION['id'] e verifica também se ela não está vazia garantindo acesso a área restrita.
-header("Location:premmyposts.php");
-}else{ #Caso o $SESSION ID não esteja populado, será requisitado o login
-}
-
 $dsn = "mysql:dbname=blog;host=127.0.0.1";
 $dbuser = "root";
 $dbpass = "";
@@ -20,9 +14,9 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 while($data=$select->fetch()){
 ?>
-<div class="col-md-12">
+<div class="col-md-6">
 
-        <div class="col-md-4 blog-main">
+        <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
             <br>
@@ -31,7 +25,9 @@ while($data=$select->fetch()){
             <!--<p>Autor-id:<?php echo $data['id']; ?></p><-->
             <hr>
             <p><?php echo $data['post']; ?><p>
-              <a class='btn btn-outline-primary' id='edit' href='single.php?this_id=<?php echo $data['id']; ?>'>Read More</a>
+              <a class='btn btn-outline-primary edit' href='single.php?this_id=<?php echo $data['id']; ?>'>Read More</a>
+              <a class='btn btn-outline-primary edit' href='delete.php?del_id=<?php echo $data['id']; ?>'>Delete</a>
+              <a class='btn btn-outline-primary edit' href='update.php?edit_id=<?php echo $data['id']; ?>'>Edit</a>
 
             <hr>
           </div><!-- /.blog-post -->

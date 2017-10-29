@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('header.php');
 
 session_start(); #Se usamos sessão em nosso sitema, todos os arquivos devem ter session_start()
@@ -7,9 +7,9 @@ if(isset($_POST['email']) && empty($_POST['email'])==false){
 	$senha = md5(addslashes($_POST['senha']));
 
 	try{
-$con = new PDO ("mysql:host=localhost;dbname=blog","root",""); 
+$con = new PDO ("mysql:host=localhost;dbname=blog","root","");
 $sql = $con->query("SELECT * FROM cadastrados WHERE email = '$email' AND senha = '$senha'");
-	if ($sql->rowCount()>0){ #verifica se tem algum usuário 
+	if ($sql->rowCount()>0){ #verifica se tem algum usuário
 		$dado = $sql->fetch();#pega o primeiro resultado da requisi.
 		print_r($dado);
 		$_SESSION['id'] = $dado['id']; #SALVEI MEU ID NA SESSÃO
@@ -21,7 +21,7 @@ $sql = $con->query("SELECT * FROM cadastrados WHERE email = '$email' AND senha =
 }
 catch(PDOException $e)
 {
-echo "error:".$e->getMessage(); 
+echo "error:".$e->getMessage();
 }
 
 
@@ -37,7 +37,8 @@ Página de login
 	Senha: <br/>
 	<input type="password" name="senha"><br/><br/>
 	<input type="submit" class="btn btn-dark" value="Entrar">
-	<a href="cadastro.php" class="btn btn-dark">Cadastro</a>
+	<a href="premmy.php" class="btn btn-dark">Permissão de admin para testes</a>
+
 </form>
 </div>
 </div>

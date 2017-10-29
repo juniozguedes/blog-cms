@@ -4,40 +4,40 @@ include_once('header.php');
 session_start();
 
 $dsn = "mysql:dbname=blog;host=127.0.0.1";
-$dbuser = "root"; 
-$dbpass = ""; 
+$dbuser = "root";
+$dbpass = "";
 
 try{
-$con = new PDO($dsn, $dbuser, $dbpass);  
+$con = new PDO($dsn, $dbuser, $dbpass);
 
 $edit_id = $_GET['edit_id'];
 
 
-$select = $con->prepare("SELECT * FROM cadastrados where id='$edit_id' ");
+$select = $con->prepare("SELECT * FROM posts where id='$edit_id' ");
 $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 if(isset($_POST['done']))
 {
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$titulo = $_POST['titulo'];
+$post = $_POST['post'];
 
 
-$update = $con->prepare("UPDATE cadastrados SET email=:email ,senha=:senha where id='$edit_id'");
-$update->bindParam(':email',$email);
-$update->bindParam(':senha',$senha);
+$update = $con->prepare("UPDATE posts SET titulo=:titulo ,post=:post where id='$edit_id'");
+$update->bindParam(':titulo',$titulo);
+$update->bindParam(':post',$post);
 $update->execute();
-header("location:select.php");
+header("location:premmyposts.php");
 }
 }
 catch(PDOException $e)
 {
-echo "error:".$e->getMessage(); 
+echo "error:".$e->getMessage();
 }
 ?>
 <form method="post">
-<input type="text" name="email" placeholder="Email" value="<?php echo $data['email'] ?>">
-<input type="text" name="senha" placeholder="*****" value="<?php echo $data['senha'] ?>">
+<input type="text" name="titulo" placeholder="titulo" >
+<input type="text" name="post" placeholder="Post" >
 <input type="submit" name="done" >
 </form>
 <?php include_once('footer.php');?>

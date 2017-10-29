@@ -12,9 +12,10 @@ $dbuser = "root";
 $dbpass = "";
 
 try{
+$this_id = $_GET['this_id'];
 $con = new PDO($dsn, $dbuser, $dbpass);
 $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$select = $con->prepare("SELECT * FROM posts");
+$select = $con->prepare("SELECT * FROM posts WHERE id=$this_id");
 
 $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
