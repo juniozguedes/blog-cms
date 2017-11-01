@@ -1,10 +1,9 @@
-<h1>teste boots</h1>
 <?php
 session_start(); #fundamental para o login, iniciar uma sessão em cada arquivo do sistema
 
 	if (isset($_SESSION['id']) && empty($_SESSION['id'])==false)
 	{ #Verifica se tem algo guardado na variável global $_SESSION['id'] e verifica também se ela não está vazia garantindo acesso a área restrita.
-	header("Location:premmyposts.php");		
+	header("Location:premmy.php");		
 	}else{ #Caso o $SESSION ID não esteja populado, será requisitado o login
 	header("Location:login.php");
 	}

@@ -16,7 +16,7 @@
 	      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 	        <ul class="navbar-nav mr-auto">
 	          <li class="nav-item">
-	            <a class="nav-link" href="index.php">Admin</a>
+	            <a class="nav-link" href="check.php">Admin</a>
 	          </li>
 	          <li class="nav-item dropdown">
 	            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
