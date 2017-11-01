@@ -1,12 +1,8 @@
 
-Simple and sharp CRUD system in php/mysql using wide bootstrap in it's composition
-This project is for academic purposes only, it's free to download, edit and use it for your own
+Blog with a content management system
 
-In this system you're able to register into a new account, login and make Updates, Inserts, Deletes and Select queries
+In this blog you can post as a regular visitor, or login as an admin
 
-Help me improve and make it better, it'd be awesome!
+Admin features: add admin, delete admin, edit admin.
 
-Need to improve:
-
--Admin access
--Password confirmation.
+Need to improve: Regular user account.
